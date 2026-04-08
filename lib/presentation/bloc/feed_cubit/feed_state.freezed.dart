@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FeedState {
 
- FeedStatus get status; List<Post> get posts; String? get errorMeassage;
+ FeedStatus get status; List<Post> get posts; String? get errorMessage;
 /// Create a copy of FeedState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $FeedStateCopyWith<FeedState> get copyWith => _$FeedStateCopyWithImpl<FeedState>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FeedState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.posts, posts)&&(identical(other.errorMeassage, errorMeassage) || other.errorMeassage == errorMeassage));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FeedState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.posts, posts)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(posts),errorMeassage);
+int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(posts),errorMessage);
 
 @override
 String toString() {
-  return 'FeedState(status: $status, posts: $posts, errorMeassage: $errorMeassage)';
+  return 'FeedState(status: $status, posts: $posts, errorMessage: $errorMessage)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $FeedStateCopyWith<$Res>  {
   factory $FeedStateCopyWith(FeedState value, $Res Function(FeedState) _then) = _$FeedStateCopyWithImpl;
 @useResult
 $Res call({
- FeedStatus status, List<Post> posts, String? errorMeassage
+ FeedStatus status, List<Post> posts, String? errorMessage
 });
 
 
@@ -62,11 +62,11 @@ class _$FeedStateCopyWithImpl<$Res>
 
 /// Create a copy of FeedState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? posts = null,Object? errorMeassage = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? posts = null,Object? errorMessage = freezed,}) {
   return _then(_self.copyWith(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as FeedStatus,posts: null == posts ? _self.posts : posts // ignore: cast_nullable_to_non_nullable
-as List<Post>,errorMeassage: freezed == errorMeassage ? _self.errorMeassage : errorMeassage // ignore: cast_nullable_to_non_nullable
+as List<Post>,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -152,10 +152,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( FeedStatus status,  List<Post> posts,  String? errorMeassage)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( FeedStatus status,  List<Post> posts,  String? errorMessage)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FeedState() when $default != null:
-return $default(_that.status,_that.posts,_that.errorMeassage);case _:
+return $default(_that.status,_that.posts,_that.errorMessage);case _:
   return orElse();
 
 }
@@ -173,10 +173,10 @@ return $default(_that.status,_that.posts,_that.errorMeassage);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( FeedStatus status,  List<Post> posts,  String? errorMeassage)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( FeedStatus status,  List<Post> posts,  String? errorMessage)  $default,) {final _that = this;
 switch (_that) {
 case _FeedState():
-return $default(_that.status,_that.posts,_that.errorMeassage);case _:
+return $default(_that.status,_that.posts,_that.errorMessage);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -193,10 +193,10 @@ return $default(_that.status,_that.posts,_that.errorMeassage);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( FeedStatus status,  List<Post> posts,  String? errorMeassage)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( FeedStatus status,  List<Post> posts,  String? errorMessage)?  $default,) {final _that = this;
 switch (_that) {
 case _FeedState() when $default != null:
-return $default(_that.status,_that.posts,_that.errorMeassage);case _:
+return $default(_that.status,_that.posts,_that.errorMessage);case _:
   return null;
 
 }
@@ -208,7 +208,7 @@ return $default(_that.status,_that.posts,_that.errorMeassage);case _:
 
 
 class _FeedState implements FeedState {
-  const _FeedState({this.status = FeedStatus.initial, final  List<Post> posts = const [], this.errorMeassage}): _posts = posts;
+  const _FeedState({this.status = FeedStatus.initial, final  List<Post> posts = const [], this.errorMessage}): _posts = posts;
   
 
 @override@JsonKey() final  FeedStatus status;
@@ -219,7 +219,7 @@ class _FeedState implements FeedState {
   return EqualUnmodifiableListView(_posts);
 }
 
-@override final  String? errorMeassage;
+@override final  String? errorMessage;
 
 /// Create a copy of FeedState
 /// with the given fields replaced by the non-null parameter values.
@@ -231,16 +231,16 @@ _$FeedStateCopyWith<_FeedState> get copyWith => __$FeedStateCopyWithImpl<_FeedSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FeedState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._posts, _posts)&&(identical(other.errorMeassage, errorMeassage) || other.errorMeassage == errorMeassage));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FeedState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._posts, _posts)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(_posts),errorMeassage);
+int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(_posts),errorMessage);
 
 @override
 String toString() {
-  return 'FeedState(status: $status, posts: $posts, errorMeassage: $errorMeassage)';
+  return 'FeedState(status: $status, posts: $posts, errorMessage: $errorMessage)';
 }
 
 
@@ -251,7 +251,7 @@ abstract mixin class _$FeedStateCopyWith<$Res> implements $FeedStateCopyWith<$Re
   factory _$FeedStateCopyWith(_FeedState value, $Res Function(_FeedState) _then) = __$FeedStateCopyWithImpl;
 @override @useResult
 $Res call({
- FeedStatus status, List<Post> posts, String? errorMeassage
+ FeedStatus status, List<Post> posts, String? errorMessage
 });
 
 
@@ -268,11 +268,11 @@ class __$FeedStateCopyWithImpl<$Res>
 
 /// Create a copy of FeedState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? status = null,Object? posts = null,Object? errorMeassage = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? status = null,Object? posts = null,Object? errorMessage = freezed,}) {
   return _then(_FeedState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as FeedStatus,posts: null == posts ? _self._posts : posts // ignore: cast_nullable_to_non_nullable
-as List<Post>,errorMeassage: freezed == errorMeassage ? _self.errorMeassage : errorMeassage // ignore: cast_nullable_to_non_nullable
+as List<Post>,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_threads/domain/entities/post.dart';
 import 'package:smart_threads/presentation/bloc/feed_cubit/feed_cubit.dart';
 import 'package:smart_threads/presentation/bloc/feed_cubit/feed_state.dart';
+import 'package:smart_threads/presentation/screens/comments_screens.dart';
 
 class PostCard extends StatelessWidget {
   const PostCard({super.key, required this.post});
@@ -35,7 +36,10 @@ class PostCard extends StatelessWidget {
                     _buildLikeSection(context),
 
                     const SizedBox(width: 25),
-                    const Icon(Icons.mode_comment_outlined, size: 20),
+                    IconButton(
+                      icon: const Icon(Icons.mode_comment_outlined, size: 20),
+                      onPressed: () => CommentsScreen.show(context, post),
+                    ),
                     const SizedBox(width: 25),
                     const Icon(Icons.repeat, size: 20),
                   ],

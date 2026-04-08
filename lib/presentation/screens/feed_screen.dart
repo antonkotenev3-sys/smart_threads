@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_threads/data/datasourses/local_post_data_sourse.dart';
-import 'package:smart_threads/data/repositories/post_repository_impl.dart';
 import 'package:smart_threads/presentation/bloc/create_post/create_post_cubit.dart';
 import 'package:smart_threads/presentation/bloc/feed_cubit/feed_cubit.dart';
 import 'package:smart_threads/presentation/bloc/feed_cubit/feed_state.dart';
@@ -25,14 +23,17 @@ class FeedScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) => BlocProvider(
-                    create: (context) {
-                      final local = LocalPostDataSourse();
-                      final repository = PostRepositoryImpl(local);
-                      return CreatePostCubit(repository);
-                    },
-                    child: const CreatePostScreen(),
-                  ),
+                  builder: (_) {
+                    return BlocProvider.value(
+                      value: context.read<FeedCubit>(),
+                      child: BlocProvider(
+                        create: (context) => CreatePostCubit(
+                          context.read<FeedCubit>().repository,
+                        ),
+                        child: CreatePostScreen(),
+                      ),
+                    );
+                  },
                 ),
               );
             },
@@ -46,6 +47,7 @@ class FeedScreen extends StatelessWidget {
           if (state.status == FeedStatus.loading) {
             return Center(child: CircularProgressIndicator());
           }
+
           if (state.posts.isEmpty) {
             return Text('Список пуст');
           }
@@ -63,3 +65,29 @@ class FeedScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+  // final posts = [
+  //     Post(
+  //       id: '1',
+  //       content: 'Coffee was great!',
+  //       authorId: 'alex',
+  //       createdAt: '',
+  //       likes: 5,
+  //     ),
+  //     Post(
+  //       id: '2',
+  //       content: 'Had a great day!',
+  //       authorId: 'aigerim',
+  //       createdAt: '',
+  //       likes: 5,
+  //     ),
+  //     Post(
+  //       id: '3',
+  //       content: 'Developing Flutter app',
+  //       authorId: 'marat',
+  //       createdAt: '',
+  //       likes: 5,
+  //     ),
+  //   ];

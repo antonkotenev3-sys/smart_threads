@@ -1,10 +1,10 @@
-import 'package:smart_threads/data/datasourses/local_post_data_sourse.dart';
+import 'package:smart_threads/data/datasourses/local_post_datasource.dart';
 import 'package:smart_threads/data/models/post_model.dart';
 import 'package:smart_threads/domain/entities/post.dart';
 import 'package:smart_threads/domain/repositories/post_repository.dart';
 
 class PostRepositoryImpl implements PostRepository {
-  final LocalPostDataSourse _local;
+  final LocalPostDatasource _local;
   PostRepositoryImpl(this._local);
 
   @override

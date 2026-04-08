@@ -1,7 +1,7 @@
 import 'package:hive_ce_flutter/hive_ce_flutter.dart';
 import 'package:smart_threads/data/models/post_model.dart';
 
-class LocalPostDataSourse {
+class LocalPostDatasource {
   static const _boxName = 'posts';
 
   Future<Box<PostModel>> get _box async => Hive.openBox<PostModel>(_boxName);

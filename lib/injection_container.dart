@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
-import 'package:smart_threads/data/datasourses/local_post_data_sourse.dart';
-import 'package:smart_threads/data/repositories/post_repository_impl.dart';
+import 'package:smart_threads/data/datasourses/local_post_datasource.dart';
+import 'package:smart_threads/data/respositories/post_repository_impl.dart';
 import 'package:smart_threads/domain/repositories/post_repository.dart';
 import 'package:smart_threads/presentation/bloc/feed_cubit/feed_cubit.dart';
 import 'package:smart_threads/presentation/bloc/create_post/create_post_cubit.dart';
@@ -9,7 +9,7 @@ final sl = GetIt.instance; // sl — сокращение от Service Locator
 
 Future<void> init() async {
   // 1. Data Sources (Источники данных)
-  sl.registerLazySingleton(() => LocalPostDataSourse());
+  sl.registerLazySingleton(() => LocalPostDatasource());
 
   // 2. Repositories (Репозитории)
   // Регистрируем реализацию для интерфейса PostRepository
